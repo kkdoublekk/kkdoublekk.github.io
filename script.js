@@ -116,7 +116,7 @@ for (let i = 0; i < 4; i++) {
 }
 
 // Create keypad buttons
-const keypadKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', '⌫'];
+const keypadKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', 'X'];
 
 keypadKeys.forEach((key) => {
   const btn = document.createElement('button');
@@ -332,7 +332,7 @@ const PHOTOS = [
   { src: 'images/IMG_3762.JPG', cap: 'nauryz' },
   { src: 'images/Photo2.jpeg', cap: '"dnd" mode on (non stiamo facendo nulla)' },
   { src: 'images/IMG_6218.HEIC', cap: 'pasqua' },
-  { src: 'images/IMG_394DA3E6FB7D-1.jpeg', cap: 'la vista che preferisco:il tramonte,il mare,tu' },
+  { src: 'images/IMG_394DA3E6FB7D-1.jpeg', cap: 'la vista che preferisco:il tramonto,il mare,tu' },
   { src: 'images/IMG_6749.JPG', cap: 'i fichi' },
   { src: 'images/IMG_7356.JPG', cap: 'goofy ahh' },
   { src: 'images/IMG_7230.JPG', cap: 'cane e cucciolo' },
