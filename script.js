@@ -120,13 +120,25 @@ const keypadKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', 'X'];
 
 keypadKeys.forEach((key) => {
   const btn = document.createElement('button');
-  if (key) {
-    btn.textContent = key;
-    btn.onclick = () => keyInput(key);
-  } else {
+
+  if (!key) {
     btn.style.visibility = 'hidden';
+    $('pad').appendChild(btn);
+    return;
   }
-  $('pad').appendChild(btn);
+
+  btn.textContent = key;
+  btn.onclick = () => keyInput(key);
+
+  if (key === 'X') {
+    btn.setAttribute('aria-label', 'cancella');
+    const wrap = document.createElement('div');
+    wrap.className = 'back';
+    wrap.appendChild(btn);
+    $('pad').appendChild(wrap);
+  } else {
+    $('pad').appendChild(btn);
+  }
 });
 
 function keyInput(k) {
