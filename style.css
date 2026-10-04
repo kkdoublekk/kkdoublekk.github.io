@@ -1,0 +1,387 @@
+:root {
+  --bg: #e9ddff;
+  --bg2: #f6efff;
+  --card: #f3eaff;
+  --dark: #5b3a99;
+  --light: #b995f5;
+  --ink: #3d2670;
+  --pink: #ff9fd0;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font: 11px/1.8 'Press Start 2P', monospace;
+  background-image: 
+    linear-gradient(45deg, var(--bg2) 25%, transparent 25%, transparent 75%, var(--bg2) 75%),
+    linear-gradient(45deg, var(--bg2) 25%, transparent 25%, transparent 75%, var(--bg2) 75%);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.pg {
+  display: none;
+  min-height: 100vh;
+  padding: 20px 14px 60px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pg.on {
+  display: flex;
+}
+
+svg.px {
+  image-rendering: pixelated;
+  shape-rendering: crispEdges;
+}
+
+h1 {
+  font-size: 15px;
+  text-align: center;
+  margin: 10px 0 4px;
+  text-shadow: 3px 3px 0 #fff;
+}
+
+.sub {
+  text-align: center;
+  font-size: 9px;
+  margin-bottom: 18px;
+}
+
+.win {
+  background: var(--card);
+  border: 4px solid var(--dark);
+  box-shadow: 6px 6px 0 var(--light);
+  padding: 18px;
+}
+
+#lock .win {
+  width: min(320px, 100%);
+  text-align: center;
+  margin-top: 14px;
+}
+
+.dots {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin: 14px 0;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--dark);
+  background: #fff;
+}
+
+.dot.f {
+  background: var(--dark);
+}
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.pad button,
+.btn {
+  font: inherit;
+  font-size: 14px;
+  height: 56px;
+  background: #fff;
+  color: var(--ink);
+  border: 4px solid var(--dark);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--light);
+}
+
+.pad button:active,
+.btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+.pad button:hover,
+.btn:hover {
+  background: #efe3ff;
+  border-color: var(--light);
+}
+
+.err {
+  color: #d2338a;
+  height: 20px;
+  font-size: 10px;
+}
+
+.shake {
+  animation: sh .4s;
+}
+
+@keyframes sh {
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.hint {
+  font-size: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px 22px;
+  width: min(960px, 100%);
+  margin-top: 16px;
+}
+
+.fold {
+  position: relative;
+  background: var(--card);
+  border: 4px solid var(--dark);
+  padding: 22px 16px 16px;
+  box-shadow: 6px 6px 0 var(--light);
+  transition: .12s;
+}
+
+.fold::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: -26px;
+  width: 110px;
+  height: 22px;
+  background: var(--card);
+  border: 4px solid var(--dark);
+  border-bottom: 0;
+  transition: .12s;
+}
+
+.fold:hover,
+.fold:hover::before {
+  border-color: var(--light);
+}
+
+.fold:hover {
+  box-shadow: inset 0 0 0 4px var(--light), 6px 6px 0 var(--dark);
+}
+
+.fold h2 {
+  font-size: 10px;
+  margin: 0 0 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.big {
+  font-size: 11px;
+  line-height: 2.4;
+  text-align: center;
+}
+
+.big b {
+  display: inline-block;
+  min-width: 2ch;
+  background: #fff;
+  border: 3px solid var(--dark);
+  padding: 2px 6px;
+  margin: 0 2px;
+  font-weight: 400;
+}
+
+.big small {
+  font-size: 8px;
+}
+
+.sep {
+  border-top: 4px dotted var(--light);
+  margin: 12px 0;
+}
+
+.album {
+  cursor: pointer;
+  text-align: center;
+}
+
+.album:hover .bk {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+.album h2 {
+  justify-content: flex-start;
+}
+
+.bk {
+  transition: .15s;
+  display: block;
+  margin: 6px auto;
+}
+
+canvas {
+  width: 100%;
+  image-rendering: pixelated;
+  border: 3px solid var(--dark);
+  background: #d8f0ff;
+  display: block;
+}
+
+.km {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 11px;
+}
+
+.km small {
+  display: block;
+  font-size: 8px;
+  margin-top: 4px;
+}
+
+.fl {
+  position: fixed;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pg > * {
+  position: relative;
+  z-index: 1;
+}
+
+#alb {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 0 14px;
+}
+
+.btn {
+  height: auto;
+  padding: 10px 12px;
+  font-size: 9px;
+}
+
+.rope {
+  width: 100%;
+  margin-top: 36px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  scrollbar-width: none;
+}
+
+.rope::-webkit-scrollbar {
+  display: none;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  gap: 34px;
+  padding: 50px 60px 40px;
+  width: max-content;
+}
+
+.track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22px;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--dark) 0 8px, var(--light) 8px 16px);
+}
+
+.pol {
+  position: relative;
+  width: 170px;
+  background: #fff;
+  border: 4px solid var(--dark);
+  padding: 10px 10px 34px;
+  transform-origin: 50% -20px;
+  box-shadow: 5px 5px 0 var(--light);
+  animation: sw 4s ease-in-out infinite;
+  user-select: none;
+}
+
+.pol:nth-child(odd) {
+  animation-delay: -1.5s;
+  --r: -3deg;
+}
+
+.pol:nth-child(even) {
+  --r: 3deg;
+  margin-top: 14px;
+}
+
+@keyframes sw {
+  0%, 100% { transform: rotate(var(--r)); }
+  50% { transform: rotate(calc(var(--r) * -1)); }
+}
+
+.pol::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -34px;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  background: var(--pink);
+  border: 3px solid var(--dark);
+}
+
+.pol .im {
+  height: 150px;
+  background: var(--bg);
+  border: 3px solid var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.pol p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  margin: 0;
+  text-align: center;
+  font-size: 8px;
+}
+
+.tip {
+  font-size: 8px;
+  text-align: center;
+  margin: 10px 14px 0;
+}
