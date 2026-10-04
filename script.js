@@ -232,7 +232,7 @@ const distanceKm = Math.round(
   )
 );
 
-$('km').innerHTML = `${distanceKm.toLocaleString('it-IT')} km di distanza<small>ma più vicini che mai ♥</small>`;
+$('km').innerHTML = `${distanceKm.toLocaleString('it-IT')} km di distanza`;
 
 // Map projection setup
 const ctx = $('map').getContext('2d');
