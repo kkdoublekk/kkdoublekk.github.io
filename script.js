@@ -328,13 +328,13 @@ function drawMap(progress) {
 
 // --- PHOTO ALBUM INITIALIZATION ---
 const PHOTOS = [
-  { src: 'images/foto1.jpg', cap: 'firenze' },
+  { src: 'images/foto1.jpg', cap: 'off the grid with this one.' },
   { src: 'images/foto2.jpg', cap: 'pasqua' },
-  { src: 'images/foto3.jpg', cap: 'worposers' },
-  { src: 'images/foto4.jpg', cap: 'tu e io' },
+  { src: 'images/foto3.jpg', cap: '"do not disturb" mode on (non stiamo facendo assolutamente nulla)' },
+  { src: 'images/foto4.jpg', cap: 'la vista che preferisco: il tramonte, il mare, tu' },
   { src: 'images/foto5.jpg', cap: 'i fichi' },
   { src: 'images/foto6.jpg', cap: 'cane e cucciolo' },
-  { src: 'images/foto7.jpg', cap: '' },
+  { src: 'images/foto7.jpg', cap: 'yippee' },
   { src: 'images/foto8.jpg', cap: 'mi manchi' }
 ];
 
