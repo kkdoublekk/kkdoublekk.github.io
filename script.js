@@ -130,7 +130,7 @@ keypadKeys.forEach((key) => {
 });
 
 function keyInput(k) {
-  if (k === '⌫') {
+  if (k === 'X') {
     code = code.slice(0, -1);
   } else if (code.length < 4) {
     code += k;
