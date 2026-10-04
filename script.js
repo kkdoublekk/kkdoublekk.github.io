@@ -148,7 +148,7 @@ function keyInput(k) {
       if (code === '0409') {
         show('stats');
       } else {
-        $('err').textContent = 'Riprova ♥';
+        $('err').textContent = 'riprova ♥';
         $('dots').classList.add('shake');
         setTimeout(() => $('dots').classList.remove('shake'), 400);
 
