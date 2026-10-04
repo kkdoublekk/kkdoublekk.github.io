@@ -328,15 +328,16 @@ function drawMap(progress) {
 
 // --- PHOTO ALBUM INITIALIZATION ---
 const PHOTOS = [
-  { src: 'images/foto1.jpg', cap: 'off the grid with this one.' },
-  { src: 'images/foto2.jpg', cap: 'pasqua' },
-  { src: 'images/foto3.jpg', cap: '"do not disturb" mode on (non stiamo facendo assolutamente nulla)' },
-  { src: 'images/foto4.jpg', cap: 'la vista che preferisco: il tramonte, il mare, tu' },
-  { src: 'images/foto5.jpg', cap: 'i fichi' },
-  { src: 'images/foto6.jpg', cap: 'goofy ahh' },
-  { src: 'images/foto7.jpg', cap: 'cane e cucciolo' },
-  { src: 'images/foto8.jpg', cap: 'yippee' },
-  { src: 'images/foto9.jpg', cap: 'mi manchi' }
+  { src: 'images/IMG_2340.JPG', cap: 'off the grid with this one.' },
+  { src: 'images/IMG_3762.JPG', cap: 'nauryz' },
+  { src: 'images/IMG_6218.HEIC', cap: 'pasqua' },
+  { src: 'images/Photo on 16-06-26 at 17.38 #2.jpeg', cap: '"do not disturb" mode on (non stiamo facendo assolutamente nulla)' },
+  { src: 'images/IMG_394DA3E6FB7D-1.jpeg', cap: 'la vista che preferisco: il tramonte, il mare, tu' },
+  { src: 'images/IMG_6749.JPG', cap: 'i fichi' },
+  { src: 'images/IMG_7356.JPG', cap: 'goofy ahh' },
+  { src: 'images/IMG_7230.JPG', cap: 'cane e cucciolo' },
+  { src: 'images/e021f322-8226-4d80-ae83-1b302798d829.JPG', cap: 'yippee' },
+  { src: 'images/IMG_8949.PNG', cap: 'mi manchi' }
 ];
 
 PHOTOS.forEach((photo) => {
