@@ -122,18 +122,18 @@ keypadKeys.forEach((key) => {
   const btn = document.createElement('button');
   if (key) {
     btn.textContent = key;
-    btn.onclick = () => keypadInput(key);
+    btn.onclick = () => keyInput(key);
   } else {
     btn.style.visibility = 'hidden';
   }
   $('pad').appendChild(btn);
 });
 
-function keypadInput(key) {
-  if (key === '⌫') {
+function keyInput(k) {
+  if (k === '⌫') {
     code = code.slice(0, -1);
   } else if (code.length < 4) {
-    code += key;
+    code += k;
   }
 
   // Update dots UI
@@ -165,8 +165,8 @@ $('hint').onclick = () => {$('hint').textContent = 'indizio: IL giorno ♥';
 // Physical keyboard listeners for PIN entry
 document.addEventListener('keydown', (e) => {
   if ($('lock').classList.contains('on')) {
-    if (/^\d$/.test(e.key)) keypadsInput(e.key);
-    if (e.key === 'Backspace') keypadInput('⌫');
+    if (/^\d$/.test(e.key)) keyInput(e.key);
+    if (e.key === 'Backspace') keyInput('⌫');
   }
 });
 
