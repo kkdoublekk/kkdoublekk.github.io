@@ -159,14 +159,14 @@ function keyInput(k) {
   }
 }
 
-$('hint').onclick = () => {$('hint').textContent = 'indizio: IL giorno ♥';
+$('hint').onclick = () => {$('hint').textContent = 'indizio: il giorno ♥';
 };
 
 // Physical keyboard listeners for PIN entry
 document.addEventListener('keydown', (e) => {
   if ($('lock').classList.contains('on')) {
     if (/^\d$/.test(e.key)) keyInput(e.key);
-    if (e.key === 'Backspace') keyInput('⌫');
+    if (e.key === 'Backspace') keyInput('X');
   }
 });
 
