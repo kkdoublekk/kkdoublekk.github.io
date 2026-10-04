@@ -330,11 +330,11 @@ function drawMap(progress) {
 const PHOTOS = [
   { src: 'images/foto1.jpg', cap: 'firenze' },
   { src: 'images/foto2.jpg', cap: 'pasqua' },
-  { src: 'images/foto3.jpg', cap: '' },
+  { src: 'images/foto3.jpg', cap: 'worposers' },
   { src: 'images/foto4.jpg', cap: 'tu e io' },
-  { src: 'images/foto5.jpg', cap: 'fichi' },
-  { src: 'images/foto6.jpg', cap: 'carino' },
-  { src: 'images/foto7.jpg', cap: 'il giorno' },
+  { src: 'images/foto5.jpg', cap: 'i fichi' },
+  { src: 'images/foto6.jpg', cap: 'cane e cucciolo' },
+  { src: 'images/foto7.jpg', cap: '' },
   { src: 'images/foto8.jpg', cap: 'mi manchi' }
 ];
 
