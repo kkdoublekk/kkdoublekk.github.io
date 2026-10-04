@@ -330,8 +330,8 @@ function drawMap(progress) {
 const PHOTOS = [
   { src: 'images/IMG_2340.JPG', cap: 'off the grid with this one.' },
   { src: 'images/IMG_3762.JPG', cap: 'nauryz' },
-  { src: 'images/IMG_6218.HEIC', cap: 'pasqua' },
   { src: 'images/Photo2.jpeg', cap: '"dnd" mode on (non stiamo facendo nulla)' },
+  { src: 'images/IMG_6218.HEIC', cap: 'pasqua' },
   { src: 'images/IMG_394DA3E6FB7D-1.jpeg', cap: 'la vista che preferisco:il tramonte,il mare,tu' },
   { src: 'images/IMG_6749.JPG', cap: 'i fichi' },
   { src: 'images/IMG_7356.JPG', cap: 'goofy ahh' },
