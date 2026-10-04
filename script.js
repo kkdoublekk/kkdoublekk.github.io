@@ -328,14 +328,14 @@ function drawMap(progress) {
 
 // --- PHOTO ALBUM INITIALIZATION ---
 const PHOTOS = [
-  { src: 'images/foto1.jpg', cap: 'il nostro inizio' },
-  { src: 'images/foto2.jpg', cap: '4 settembre' },
-  { src: 'images/foto3.jpg', cap: 'prima chiamata' },
+  { src: 'images/foto1.jpg', cap: 'firenze' },
+  { src: 'images/foto2.jpg', cap: 'pasqua' },
+  { src: 'images/foto3.jpg', cap: '' },
   { src: 'images/foto4.jpg', cap: 'tu e io' },
-  { src: 'images/foto5.jpg', cap: 'pixel love' },
-  { src: 'images/foto6.jpg', cap: 'mi manchi' },
-  { src: 'images/foto7.jpg', cap: '31 ottobre!' },
-  { src: 'images/foto8.jpg', cap: 'a presto ♥' }
+  { src: 'images/foto5.jpg', cap: 'fichi' },
+  { src: 'images/foto6.jpg', cap: 'carino' },
+  { src: 'images/foto7.jpg', cap: 'il giorno' },
+  { src: 'images/foto8.jpg', cap: 'mi manchi' }
 ];
 
 PHOTOS.forEach((photo) => {
