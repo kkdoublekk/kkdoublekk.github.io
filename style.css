@@ -393,7 +393,6 @@ canvas {
 }
 
 
-/* backspace-shaped key */
 .pad .back {
   filter: drop-shadow(3px 3px 0 var(--light));
 }
