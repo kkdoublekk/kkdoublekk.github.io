@@ -1,4 +1,4 @@
-// --- DOM HELPERS & COLOR PALETTE ---
+// dom helpers and color pallette
 const $ = (id) => document.getElementById(id);
 
 const PALETTE = {
@@ -64,7 +64,7 @@ const PIXEL_MAPS = {
   ]
 };
 
-// Generates an SVG string for a given pixel art key
+//  SVG string for a given pixel art key
 function pix(name, scale) {
   const map = PIXEL_MAPS[name];
   let rects = '';
@@ -83,14 +83,14 @@ function pix(name, scale) {
   return `<svg class="px" viewBox="0 0 ${width} ${height}" width="${width * scale}" height="${height * scale}">${rects}</svg>`;
 }
 
-// --- INITIALIZE PIXEL ART ELEMENTS ---
+// pixel art initialisation 
 $('book').innerHTML = pix('book', 9);
 
 document.querySelectorAll('.ic').forEach((el) => {
   el.innerHTML = pix(el.dataset.i, 3);
 });
 
-// Floating background flowers
+// bg flowers
 for (let i = 0; i < 9; i++) {
   const flower = document.createElement('div');
   flower.className = 'fl';
@@ -99,7 +99,10 @@ for (let i = 0; i < 9; i++) {
   document.body.appendChild(flower);
 }
 
-// --- PAGE NAVIGATION ---
+
+
+
+// page nav
 function show(pageId) {
   document.querySelectorAll('.pg').forEach((page) => {
     page.classList.toggle('on', page.id === pageId);
@@ -107,15 +110,20 @@ function show(pageId) {
   scrollTo(0, 0);
 }
 
-// --- PIN CODE LOCK SCREEN ---
+
+
+
+
+
+// lock screen pin code
 let code = '';
 
-// Create indicator dots
+// indicator dots
 for (let i = 0; i < 4; i++) {
   $('dots').innerHTML += '<div class="dot"></div>';
 }
 
-// Create keypad buttons
+// keypad buttons
 const keypadKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', 'X'];
 
 keypadKeys.forEach((key) => {
@@ -148,7 +156,7 @@ function keyInput(k) {
     code += k;
   }
 
-  // Update dots UI
+  // update dots UI
   [...$('dots').children].forEach((dot, idx) => {
     dot.classList.toggle('f', idx < code.length);
   });
@@ -174,7 +182,7 @@ function keyInput(k) {
 $('hint').onclick = () => {$('hint').textContent = 'indizio: il giorno ♥';
 };
 
-// Physical keyboard listeners for PIN entry
+// keyboard listeners for PIN entry
 document.addEventListener('keydown', (e) => {
   if ($('lock').classList.contains('on')) {
     if (/^\d$/.test(e.key)) keyInput(e.key);
@@ -182,9 +190,12 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// --- COUNTDOWNS & TIMERS ---
+
+
+
+// countdown
 const startDate = new Date(2026, 8, 4, 0, 0, 0);
-const meetDate = new Date(2026, 9, 31, 0, 0, 0);
+const meetDate = new Date(2026, 10, 12, 0, 0, 0);
 
 function parseTimeParts(ms) {
   const totalSeconds = Math.max(0, Math.floor(ms / 1000));
@@ -217,7 +228,10 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-// Total calls time calculation
+
+
+
+//  total calls time 
 const totalSeconds = 2383 * 60 + 14;
 const hours = Math.floor(totalSeconds / 3600);
 const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -225,16 +239,23 @@ const seconds = totalSeconds % 60;
 
 $('calls').innerHTML = `<b>${hours}</b> ore <b>${minutes}</b> min <b>${seconds}</b> sec`;
 
-// Section navigation buttons
+
+
+
+//  navigation buttons
 $('open').onclick = () => show('alb');$('back').onclick = () => show('stats');
 
-// --- GEOGRAPHIC DISTANCE & MAP CANVAS ---
+
+
+
+
+// map canvas
 const GIJON = { lon: -5.6611, lat: 43.5322 };
 const ROME = { lon: 12.4964, lat: 41.9028 };
 
 const toRad = (deg) => (deg * Math.PI) / 180;
 
-// Haversine distance calculation in kilometers
+//  calculation in kilometers
 const distanceKm = Math.round(
   2 * 6371 * Math.asin(
     Math.sqrt(
@@ -246,7 +267,7 @@ const distanceKm = Math.round(
 
 $('km').innerHTML = `${distanceKm.toLocaleString('it-IT')} km non ci toccano`;
 
-// Map projection setup
+// map projection 
 const ctx = $('map').getContext('2d');
 const MAP_WIDTH = 140;
 const MAP_HEIGHT = 100;
@@ -274,18 +295,18 @@ const posA = projectCoords(GIJON.lon, GIJON.lat);
 const posB = projectCoords(ROME.lon, ROME.lat);
 const posControl = [(posA[0] + posB[0]) / 2, Math.min(posA[1], posB[1]) - 32];
 
-// Quadratic Bezier curve point interpolation
+//  Bezier curve point interpolation
 const getBezierPoint = (t) => [
   (1 - t) ** 2 * posA[0] + 2 * (1 - t) * t * posControl[0] + t ** 2 * posB[0],
   (1 - t) ** 2 * posA[1] + 2 * (1 - t) * t * posControl[1] + t ** 2 * posB[1]
 ];
 
 function drawMap(progress) {
-  // Clear map background
+  // map bg
   ctx.fillStyle = '#d8f0ff';
   ctx.fillRect(0, 0, MAP_WIDTH, MAP_HEIGHT);
 
-  // Render landmasses
+  // landmasses
   landPolygons.forEach((polygon) => {
     ctx.beginPath();
     polygon.forEach((vertex, index) => {
@@ -300,20 +321,20 @@ function drawMap(progress) {
     ctx.stroke();
   });
 
-  // Render dotted connection line
+  // connection line
   ctx.fillStyle = '#ff5fa8';
   for (let i = 0; i <= 40; i += 2) {
     const [x, y] = getBezierPoint(i / 40);
     ctx.fillRect(Math.round(x), Math.round(y), 2, 2);
   }
 
-  // Render city pin markers
+  // pins
   [posA, posB].forEach((point) => {
     ctx.fillStyle = '#5b3a99';
     ctx.fillRect(Math.round(point[0]) - 2, Math.round(point[1]) - 2, 5, 5);
   });
 
-  // Render moving heart along the arc
+  // heart
   const [hx, hy] = getBezierPoint(progress);
   const px = Math.round(hx);
   const py = Math.round(hy);
@@ -325,20 +346,25 @@ function drawMap(progress) {
   ctx.fillRect(px - 1, py, 3, 2);
   ctx.fillRect(px, py + 2, 1, 1);
 
-  // Render city labels
+  // cities
   ctx.fillStyle = '#3d2670';
   ctx.font = '7px monospace';
   ctx.fillText('Gijón', posA[0] - 8, posA[1] + 11);
   ctx.fillText('Roma', posB[0] - 8, posB[1] + 11);
 }
 
-// Animation loop
+// animation
 (function renderLoop(timestamp) {
   drawMap((timestamp / 4000) % 1);
   requestAnimationFrame(renderLoop);
 })(0);
 
-// --- PHOTO ALBUM INITIALIZATION ---
+
+
+
+
+
+// album
 const PHOTOS = [
   { src: 'images/IMG_2340.JPG', cap: 'off the grid with this one.' },
   { src: 'images/IMG_3762.JPG', cap: 'nauryz' },
@@ -369,7 +395,7 @@ PHOTOS.forEach((photo) => {
   $('track').appendChild(polaroid);
 });
 
-// --- HORIZONTAL SCROLL / DRAG FUNCTIONALITY ---
+//  rope
 const ropeContainer = $('rope');
 let isMouseDown = false;
 let startX = 0;
